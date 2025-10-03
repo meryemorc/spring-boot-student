@@ -16,6 +16,7 @@ public class StudentController {
 
     @PostMapping
     public Student addStudent(@RequestBody Student student){
+
         return studentService.addStudent(student);
     }
 
@@ -28,10 +29,12 @@ public class StudentController {
     public List<Student> getAllStudents(){
         return studentService.getAllStudents();
     }
+
     @GetMapping("/{number}")
     public Student getStudent(@PathVariable int number){
         return studentService.findByNumber(number);
     }
+
     @PostMapping("/{studentNumber}/courses/{courseId}")
     public void addCourseToStudent(@PathVariable int studentNumber, @PathVariable Long courseId) {
         studentService.addCourseToStudent(studentNumber, courseId);
